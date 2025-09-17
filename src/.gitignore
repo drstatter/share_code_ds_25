@@ -1,0 +1,12 @@
+# IntelliJ / Java
+.idea/
+*.iml
+out/
+target/
+build/
+.gradle/
+.mvn/wrapper/maven-wrapper.jar
+
+
+.DS_Store
+*.log
