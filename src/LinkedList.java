@@ -26,10 +26,11 @@ public class LinkedList<T> implements Iterable<Node<T>> {
 			size++;
 		}
 		private Node<T>findLast(){
-			Iterator<T> iter=new LinkeListIter<T>();
+			Iterator<Node<T>> iter=new LinkeListIter<Node<T>>();
 			Node<T> back = null;
 			while (iter.hasNext()) {
-				back=(Node<T>) iter.next();}
+				back= iter.next();
+            }
 			return back;
 		}
 		private Node<T> findLast1() {
@@ -42,7 +43,7 @@ public class LinkedList<T> implements Iterable<Node<T>> {
 		
 
 		public String toString() {
-			StringBuffer buffer =new StringBuffer();
+			StringBuilder buffer = new StringBuilder();
 			for (Node<T> data : this) {
 				buffer.append(data.getData());
 				buffer.append(" ");
@@ -70,17 +71,17 @@ public class LinkedList<T> implements Iterable<Node<T>> {
 			}
 			@Override
 			public E next() {
-
+                E back= (E) inNode;
 				inNode=inNode.getNext();
 				gone++;
-				return (E) inNode;
+				return back;
 			}
 			
 		}
 			
 
 		public static void main(String[] args) {
-			LinkedList listy=new LinkedList();
+			LinkedList<Integer> listy=new LinkedList<Integer>();
 			listy.addFirst(4);
 			listy.addFirst(3);
 			System.out.println(listy);
