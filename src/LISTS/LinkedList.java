@@ -1,3 +1,5 @@
+package LISTS;
+
 import java.util.Iterator;
 
 public class LinkedList<T> implements Iterable<Node<T>> {
@@ -40,7 +42,6 @@ public class LinkedList<T> implements Iterable<Node<T>> {
 			}
 			return in;
 		}
-		
 
 		public String toString() {
 			StringBuilder buffer = new StringBuilder();
@@ -87,6 +88,7 @@ public class LinkedList<T> implements Iterable<Node<T>> {
 			System.out.println(listy);
 			listy.addLastNode(8);
 			System.out.println(listy);
-		}
+
+        }
 
 }
