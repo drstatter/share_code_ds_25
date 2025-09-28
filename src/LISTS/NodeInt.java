@@ -1,3 +1,5 @@
+package LISTS;
+
 public class NodeInt {
 	private NodeInt next;
 	private int data;
@@ -18,7 +20,7 @@ public class NodeInt {
 	}
 	@Override
 	public String toString() {
-		return "Node [next=" +( (next!=null) ? next.getData(): "null"  ) + ", data=" + data + "]";
+		return "LISTS.Node [next=" +( (next!=null) ? next.getData(): "null"  ) + ", data=" + data + "]";
 	}
 	
 }
