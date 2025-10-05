@@ -24,7 +24,7 @@ public class DoubleLinkedList<T> {
         return true;
     }
     public boolean addFirst(T data) {
-        DoubleNode newNode = new DoubleNode( head,null, data);
+        DoubleNode<T> newNode = new DoubleNode<T>( head,null, data);
         if (size == 0) {
             head = newNode;
             tail = newNode;
@@ -38,6 +38,8 @@ public class DoubleLinkedList<T> {
     }
     public boolean addIn(DoubleNode<T> inNode, T data) {
         DoubleNode<T> newNode = new DoubleNode<T>(inNode.getNext(),inNode, data);
+        inNode.setNext(newNode);
+        newNode.setPrev(inNode);
         size++;
         return true;
     }
