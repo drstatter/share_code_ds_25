@@ -1,4 +1,4 @@
-package LISTS;
+package lists;
 
 public class DoubleNode<T> {
     private DoubleNode<T> next;

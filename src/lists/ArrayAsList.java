@@ -1,9 +1,4 @@
-package LISTS;
-
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+package lists;
 
 public class ArrayAsList  {
     private int[] data;

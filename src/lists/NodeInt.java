@@ -1,21 +1,21 @@
-package LISTS;
+package lists;
 
-public class Node<T> {
-	private Node<T> next;
-	private T data;
+public class NodeInt {
+	private NodeInt next;
+	private int data;
 	
 	
-	public Node(Node<T> next, T data) {
+	public NodeInt(NodeInt next, int data) {
 		this.next = next;
 		this.data = data;
 	}
-	public Node<T> getNext() {
+	public NodeInt getNext() {
 		return next;
 	}
-	public void setNext(Node<T> next) {
+	public void setNext(NodeInt next) {
 		this.next = next;
 	}
-	public T getData() {
+	public int getData() {
 		return data;
 	}
 	@Override
@@ -24,5 +24,3 @@ public class Node<T> {
 	}
 	
 }
-
-

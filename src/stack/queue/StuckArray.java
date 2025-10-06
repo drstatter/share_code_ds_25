@@ -1,4 +1,4 @@
-package StackAndQueue;
+package stack.queue;
 
 public class StuckArray<T> {
     private T[] data;

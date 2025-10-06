@@ -1,4 +1,4 @@
-package LISTS;
+package lists;
 
 import java.util.Arrays;
 
