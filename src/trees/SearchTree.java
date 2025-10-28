@@ -1,5 +1,6 @@
-package trees;
 
+package trees;
+import java.util.List;
 
 public class SearchTree<T extends Comparable<T>> {
     private SearchTreeNode<T> root;
@@ -16,7 +17,6 @@ public class SearchTree<T extends Comparable<T>> {
     public void setRoot(SearchTreeNode<T> root) {
         this.root = root;
     }
-
     public boolean add(T data) {
         if (root == null) {
             root = new SearchTreeNode<T>(data);
@@ -163,11 +163,10 @@ public class SearchTree<T extends Comparable<T>> {
             killMe.setData(successorValue); // Replace value
             return true;
         }
-        //
-
-        return false;
 
     }
+
+
 
     public static void main(String[] args) {
         SearchTree<Integer> tree = new SearchTree<>();
@@ -190,5 +189,14 @@ public class SearchTree<T extends Comparable<T>> {
         System.out.println("Successor of 15: " + tree.successor(tree.find(15)));
         System.out.println("Successor of 11: " + tree.successor(tree.find(11)));
         System.out.println("Successor of 7: " + tree.successor(tree.find(7)));
+    }
+
+
+    public void inOrderTraversal(SearchTreeNode<T> node, List<T> back) {
+        if (node != null) {
+            inOrderTraversal(node.getLeft(), back);
+            back.add(node.getData());
+            inOrderTraversal(node.getRight(), back);
+        }
     }
 }
