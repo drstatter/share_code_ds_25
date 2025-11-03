@@ -5,7 +5,7 @@ public class BinSearch {
     public int binSearch(int[] data,int valToSearch){
         return binSearchRec(data,valToSearch,0,data.length-1);
     }
-    public int binSearchRec(int[] data,int valToSearch,int start,int end){
+    private int binSearchRec(int[] data,int valToSearch,int start,int end){
         if(start>end){
             return NOT_FOUND;
         }else {
@@ -39,6 +39,6 @@ public class BinSearch {
     public static void main(String[] args) {
         int[] data={4,6,8,12,42,101,999};
         BinSearch binSearch = new BinSearch();
-        System.out.println(binSearch.binSearch(data,999));
+        System.out.println(binSearch.binSearch(data,12));
     }
 }
