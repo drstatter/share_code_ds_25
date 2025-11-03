@@ -19,6 +19,22 @@ public class BinSearch {
                 return binSearchRec(data,valToSearch,start,mid-1);}
         }
     }
+    public  int binSearchIter(int[] data,int valToSearch){
+        int start=0;
+        int end=data.length-1;
+        while (start<=end){
+            int mid=(start+end)/2;
+            if(data[mid]==valToSearch){
+                return mid;
+            }
+            if(data[mid]<valToSearch){
+                start=mid+1;
+            }else {
+                end=mid-1;
+            }
+        }
+        return NOT_FOUND;
+    }
 
     public static void main(String[] args) {
         int[] data={4,6,8,12,42,101,999};

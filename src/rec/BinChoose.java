@@ -13,6 +13,6 @@ public class BinChoose {
 
     public static void main(String[] args) {
         BinChoose binChoose = new BinChoose();
-        System.out.println(binChoose.nChooseK(5,1));
+        System.out.println(binChoose.nChooseK(50,30));
     }
 }
