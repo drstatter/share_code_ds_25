@@ -8,9 +8,11 @@ public class CountingSort {
         for( int num : data ){
             counts[num]++;
         }
+        //change count to start place
         for(int i=1;i<counts.length;i++){
             counts[i]+=counts[i-1];
         }
+        //starting from the end put every element in its place and move one 
         for(int i=data.length-1;i>=0 ;i--){
             back[counts[data[i]]-1]=data[i];
             counts[data[i]]--;
