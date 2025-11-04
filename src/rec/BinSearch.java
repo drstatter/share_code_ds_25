@@ -6,6 +6,9 @@ public class BinSearch {
         return binSearchRec(data,valToSearch,0,data.length-1);
     }
     private int binSearchRec(int[] data,int valToSearch,int start,int end){
+        if(data==null){
+            return NOT_FOUND;
+        }
         if(start>end){
             return NOT_FOUND;
         }else {
