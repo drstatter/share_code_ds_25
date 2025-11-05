@@ -16,6 +16,8 @@ public class reverseNumber {
     public static void main(String[] args) {
         reverseNumber reverseNumber = new reverseNumber();
         System.out.println(reverseNumber.reverse(123));
+        System.out.println(reverseNumber.reverse(-123));
+
 
     }
 }
