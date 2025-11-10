@@ -13,10 +13,17 @@ public class reverseNumber {
             return reverseRec(number / 10, rev);
         }
     }
+    public int reverse2(int number) {
+        if (number < 10) {
+            return number;
+        } else {
+            return reverse2(number / 10) * 10 + number % 10;
+
+        }
+    }
     public static void main(String[] args) {
         reverseNumber reverseNumber = new reverseNumber();
-        System.out.println(reverseNumber.reverse(123));
-        System.out.println(reverseNumber.reverse(-123));
+        System.out.println(reverseNumber.reverse2(123));
 
 
     }
