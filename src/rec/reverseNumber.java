@@ -13,9 +13,9 @@ public class reverseNumber {
             return reverseRec(number / 10, rev);
         }
     }
-
     public static void main(String[] args) {
         reverseNumber reverseNumber = new reverseNumber();
-        System.out.println(reverseNumber.reverse(1234));
+        System.out.println(reverseNumber.reverse(123));
+
     }
 }
