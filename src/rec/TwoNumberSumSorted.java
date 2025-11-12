@@ -8,7 +8,9 @@ public class TwoNumberSumSorted {
 
     private boolean subsetSumSortedRec(int[] data, int sum, int start, int end) {
         if (data == null || start >= end) {
+            System.out.println("Invalid Input");
             return false;
+
         } else {
             int currentSum = data[start] + data[end];
             if (currentSum == sum) {

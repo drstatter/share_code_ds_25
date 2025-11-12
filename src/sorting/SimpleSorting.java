@@ -32,10 +32,10 @@ public class SimpleSorting {
         return data;
     }
 
-    public Comparable [] insertionSort(Comparable[] data) {
+    public <T extends Comparable> T[] insertionSort(T[] data) {
         int n = data.length;
         for (int i = 1; i < n; i++) {
-            Comparable key = data[i];
+            T key = data[i];
             int j = i - 1;
             while (j >= 0 && data[j].compareTo(key) > 0) {
                 data[j + 1] = data[j];
