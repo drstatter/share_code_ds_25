@@ -27,6 +27,35 @@ public class LinkedList<T> implements Iterable<Node<T>> {
 			head=newNode;
 			size++;
 		}
+        private Node<T> getNodeBefore(Node<T> node) {
+            Iterator<Node<T>> iter=new LinkeListIter<Node<T>>();
+            Node<T> before = null;
+            while (iter.hasNext()) {
+                Node<T> current = iter.next();
+                if (current.getNext() == node) {
+                    before = current;
+                    break;
+                }
+            }
+            return before;
+        }
+        public boolean hasCycle() {
+            Iterator<Node<T>> slowIter=new LinkeListIter<Node<T>>();
+            Iterator<Node<T>> fastIter=new LinkeListIter<Node<T>>();
+            while (fastIter.hasNext()) {
+                Node<T> slowNode = slowIter.next();
+                Node<T> fastNode = fastIter.next();
+                if (fastIter.hasNext()) {
+                    fastNode = fastIter.next();
+                } else {
+                    return false;
+                }
+                if (slowNode == fastNode) {
+                    return true;
+                }
+            }
+            return false;
+        }
 		private Node<T>findLast(){
 			Iterator<Node<T>> iter=new LinkeListIter<Node<T>>();
 			Node<T> back = null;
