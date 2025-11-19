@@ -9,7 +9,6 @@ public class LinkedListEx2<T> implements Iterable<Node<T>> {
     public LinkedListEx2() {
         head=null;
     }
-
     public void addFirst(T data) {
         Node<T> newNode=new Node<T>(null,data);
         if (head!=null){
