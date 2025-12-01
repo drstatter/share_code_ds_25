@@ -22,7 +22,15 @@ public class LinkedList<T> implements Iterable<Node<T>>  {
         }
         //deletes first occurrence of data assume that data is in the list
         public boolean delete(T data) {
-           return True;
+            Node<T> before = getNodeBefore(data);
+            if (before == null) { //deleting head
+                head = head.getNext();
+                return true;
+            }
+            Node<T> toDelete = before.getNext();
+            before.setNext(toDelete.getNext());
+            size--;
+            return true;
         }
 		public void addLastNode(T data) {
 			if (size==0) {
@@ -52,6 +60,17 @@ public class LinkedList<T> implements Iterable<Node<T>>  {
             }
             return before;
         }
+    private Node<T> getNodeBefore(T data) {
+        Iterator<Node<T>> iter=new LinkeListIter();
+        Node<T> before = null;
+        while (iter.hasNext()) {
+            Node<T> current = iter.next();
+            if (current.getNext().getData() == data) {
+                return current;
+            }
+        }
+        return before;
+    }
         public boolean hasCycle() {
             Iterator<Node<T>> slowIter=new LinkeListIter<Node<T>>();
             Iterator<Node<T>> fastIter=new LinkeListIter<Node<T>>();
@@ -133,6 +152,8 @@ public class LinkedList<T> implements Iterable<Node<T>>  {
 			System.out.println(listy);
 			listy.addLastNode(8);
 			System.out.println(listy);
+            listy.delete(3);
+            System.out.println(listy);
 
         }
 
