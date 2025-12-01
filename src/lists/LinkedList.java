@@ -56,6 +56,9 @@ public class LinkedList<T> implements Iterable<Node<T>> {
     }
 
     private Node<T> getNodeBefore(Node<T> node) {
+        if(head==node){
+            return null;
+        }
         Iterator<Node<T>> iter = new LinkeListIter();
         Node<T> before = null;
         while (iter.hasNext()) {
