@@ -3,7 +3,9 @@ package Itrators;
 import java.util.Iterator;
 
 public class IterStringExampleIterOut implements Iterator {
-    IterStringExampleIterOut() {
+    String data;
+    IterStringExampleIterOut(String data) {
+        this.data = data;
     }
     @Override
     public boolean hasNext() {

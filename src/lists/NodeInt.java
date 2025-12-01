@@ -4,7 +4,10 @@ public class NodeInt {
 	private NodeInt next;
 	private int data;
 	
-	
+	public  NodeInt(int data) {
+        this.next = null;
+        this.data = data;
+    }
 	public NodeInt(NodeInt next, int data) {
 		this.next = next;
 		this.data = data;

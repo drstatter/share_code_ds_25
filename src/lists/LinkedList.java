@@ -2,7 +2,7 @@ package lists;
 
 import java.util.Iterator;
 
-public class LinkedList<T> implements Iterable<Node<T>> {
+public class LinkedList<T> implements Iterable<Node<T>>  {
 	
 		private Node<T> head;
 		private int size;
@@ -10,31 +10,44 @@ public class LinkedList<T> implements Iterable<Node<T>> {
 			head=null;
 			size=0;
 		}
+        public Node<T> findNode(T data) {
+            Iterator<Node<T>> iter=new LinkeListIter<Node<T>>();
+            while (iter.hasNext()) {
+                Node<T> current = iter.next();
+                if (current.getData().equals(data)) {
+                    return current;
+                }
+            }
+            return null;
+        }
+        //deletes first occurrence of data assume that data is in the list
+        public boolean delete(T data) {
+           return True;
+        }
 		public void addLastNode(T data) {
 			if (size==0) {
 				addFirst(data);
 			}
-			Node<T> newNode=new Node<T>(null,data);
-			Node<T> last=findLast();
-			last.setNext(newNode);
-			size++;
+            else {
+                Node<T> newNode = new Node<T>(null, data);
+                Node<T> last = findLast();
+                last.setNext(newNode);
+                size++;
+            }
 		}
 		public void addFirst(T data) {
 			Node<T> newNode=new Node<T>(null,data);
-			if (head!=null){
-				newNode.setNext(head);
-			}
+            newNode.setNext(head);
 			head=newNode;
 			size++;
 		}
         private Node<T> getNodeBefore(Node<T> node) {
-            Iterator<Node<T>> iter=new LinkeListIter<Node<T>>();
+            Iterator<Node<T>> iter=new LinkeListIter();
             Node<T> before = null;
             while (iter.hasNext()) {
                 Node<T> current = iter.next();
                 if (current.getNext() == node) {
-                    before = current;
-                    break;
+                    return current;
                 }
             }
             return before;
@@ -65,6 +78,9 @@ public class LinkedList<T> implements Iterable<Node<T>> {
 			return back;
 		}
 		private Node<T> findLast1() {
+            if(head==null){
+                return null;
+            }
 			Node<T> in=head;
 			while (in.getNext()!=null) {
 				in=in.getNext();

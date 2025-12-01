@@ -9,12 +9,12 @@ public class IterStringExample implements Iterable<Character> {
         this.data = str;
     }
     public Iterator<Character> iterator() {
-        return new IterStringExampleIterOut();
+        return new IterStringExampleIter();
     }
-    private class IterStringExampleIterOut implements Iterator<Character> {
+    private class IterStringExampleIter implements Iterator<Character> {
         private int currentIndex;
 
-        IterStringExampleIterOut() {
+        IterStringExampleIter() {
             currentIndex = 0;
         }
 
@@ -25,17 +25,20 @@ public class IterStringExample implements Iterable<Character> {
 
         @Override
         public Character next() {
+
             return data.charAt(currentIndex++);
         }
     }
 
     public static void main(String[] args) {
         IterStringExample example = new IterStringExample("Koala");
-        Iterator<Character> iter = example.iterator();
+        Iterator<Character> iter=example.iterator();
         while (iter.hasNext()) {
             System.out.println(iter.next());
         }
-
+//        for (Character ch : example) {
+//            System.out.println(ch);
+//        }
     }
 
 }
