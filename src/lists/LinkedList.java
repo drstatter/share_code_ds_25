@@ -48,6 +48,14 @@ public class LinkedList<T> implements Iterable<Node<T>> {
         }
     }
 
+    public Node<T> getHead() {
+        return head;
+    }
+
+    public void setHead(Node<T> head) {
+        this.head = head;
+    }
+
     public void addFirst(T data) {
         Node<T> newNode = new Node<T>(null, data);
         newNode.setNext(head);
