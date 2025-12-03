@@ -1,5 +1,7 @@
 package lists;
 
+import java.util.Iterator;
+
 public class Mergesort<T> {
     //This method will sort the linked list using merge sort algorithm
     public void mergeSort(LinkedList<T> data){
@@ -25,24 +27,52 @@ public class Mergesort<T> {
 
 
     }
-    private Node<T> sortedMerge(Node<T> a, Node<T> b){
+    private Node<T> sortedMerge(Node<T> node1, Node<T> node2){
         Node<T> result=null;
-        if(a==null){
-            return b;
+        if(node1==null){
+            return node2;
         }
-        if(b==null){
-            return a;
+        if(node2==null){
+            return node1;
         }
         //Assuming T implements Comparable
-        Comparable<T> compA=(Comparable<T>) a.getData();
-        if(compA.compareTo(b.getData())<=0){
-            result=a;
-            result.setNext(sortedMerge(a.getNext(), b));
+        Comparable<T> compA=(Comparable<T>) node1.getData();
+        if(compA.compareTo(node2.getData())<=0){
+            result=node1;
+            result.setNext(sortedMerge(node1.getNext(), node2));
         }else{
-            result=b;
-            result.setNext(sortedMerge(a, b.getNext()));
+            result=node2;
+            result.setNext(sortedMerge(node1, node2.getNext()));
         }
         return result;
+    }
+    private Node<T> sortedMergeIter(LinkedList<T> list1, LinkedList<T> list2){
+        Node<T> dummy=new Node<T>(null, null);
+        Iterator<Node<T>> iterator1=list1.iterator();
+        Iterator<Node<T>> iterator2=list2.iterator();
+        Node<T> tail=dummy;
+        while(iterator2.hasNext() && iterator1.hasNext()){
+            Node<T> node1=iterator1.next();
+            Node<T> node2=iterator2.next();
+            Comparable<T> compA=(Comparable<T>) node1.getData();
+            T compB=node2.getData();
+            if(compA.compareTo(compB)<=0){
+                tail.setNext(node1);
+            }else{
+                tail.setNext(node2);
+
+            }
+            tail=tail.getNext();
+        }
+        //append the remaining nodes
+        if(iterator1.hasNext()){
+            tail.setNext(iterator1.next());
+        }
+        if(iterator2.hasNext()) {
+            tail.setNext(iterator2.next());
+        }
+        return dummy.getNext();
+
     }
     private Node<T> getMiddle(Node<T> head){
         if(head==null){
