@@ -23,8 +23,8 @@ public class Mergesort<T> {
         mergeSort(right);
 
         //merge the sorted halves
-        data.setHead(sortedMerge(left.getHead(), right.getHead()));
-        //data.setHead(sortedMergeIter(left, right));
+        //data.setHead(sortedMerge(left.getHead(), right.getHead()));
+        data.setHead(sortedMergeIter(left, right));
 
 
     }
@@ -48,29 +48,26 @@ public class Mergesort<T> {
         return result;
     }
     private Node<T> sortedMergeIter(LinkedList<T> list1, LinkedList<T> list2){
+        Node<T> head1=list1.getHead();
+        Node<T> head2=list2.getHead();
         Node<T> dummy=new Node<T>(null, null);
-        Iterator<Node<T>> iterator1=list1.iterator();
-        Iterator<Node<T>> iterator2=list2.iterator();
         Node<T> tail=dummy;
-        while(iterator2.hasNext() && iterator1.hasNext()){
-            Node<T> node1=iterator1.next();
-            Node<T> node2=iterator2.next();
-            Comparable<T> compA=(Comparable<T>) node1.getData();
-            T compB=node2.getData();
-            if(compA.compareTo(compB)<=0){
-                tail.setNext(node1);
-            }else{
-                tail.setNext(node2);
 
+        while(head1!=null && head2!=null){
+            Comparable<T> compA=(Comparable<T>) head1.getData();
+            if(compA.compareTo(head2.getData())<=0){
+                tail.setNext(head1);
+                head1=head1.getNext();
+            }else{
+                tail.setNext(head2);
+                head2=head2.getNext();
             }
             tail=tail.getNext();
         }
-        //append the remaining nodes
-        if(iterator1.hasNext()){
-            tail.setNext(iterator1.next());
-        }
-        if(iterator2.hasNext()) {
-            tail.setNext(iterator2.next());
+        if(head1!=null){
+            tail.setNext(head1);
+        }else{
+            tail.setNext(head2);
         }
         return dummy.getNext();
 
