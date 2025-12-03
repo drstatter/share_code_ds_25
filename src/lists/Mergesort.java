@@ -24,6 +24,7 @@ public class Mergesort<T> {
 
         //merge the sorted halves
         data.setHead(sortedMerge(left.getHead(), right.getHead()));
+        //data.setHead(sortedMergeIter(left, right));
 
 
     }
@@ -88,5 +89,18 @@ public class Mergesort<T> {
             }
         }
         return slow;
+    }
+
+    public static void main(String[] args) {
+        LinkedList<Integer> listy = new LinkedList<Integer>();
+        listy.addFirst(4);
+        listy.addFirst(2);
+        listy.addFirst(5);
+        listy.addFirst(1);
+        listy.addFirst(3);
+        System.out.println("Unsorted List: " + listy);
+        Mergesort<Integer> sorter = new Mergesort<Integer>();
+        sorter.mergeSort(listy);
+        System.out.println("Sorted List: " + listy);
     }
 }
