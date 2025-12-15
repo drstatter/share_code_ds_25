@@ -39,7 +39,7 @@ public class LinkedListEx2<T> implements Iterable<Node<T>> {
         @Override
         public boolean hasNext() {
 
-            return (head!=null);  //can also check if next !=null
+            return (inNode!=null);  //can also check if next !=null
         }
         @Override
         public E next() {
@@ -52,7 +52,7 @@ public class LinkedListEx2<T> implements Iterable<Node<T>> {
 
 
     public static void main(String[] args) {
-        lists.LinkedList<Integer> listy=new lists.LinkedList<Integer>();
+        lists.LinkedListEx2<Integer> listy=new lists.LinkedListEx2<Integer>();
         listy.addFirst(4);
         listy.addFirst(3);
         Iterator<Node<Integer>> iter=listy.iterator();
