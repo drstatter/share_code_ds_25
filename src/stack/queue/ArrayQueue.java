@@ -1,12 +1,12 @@
 package stack.queue;
 
-public class ArrayQuque {
+public class ArrayQueue {
     private int[] data;
     private int front;
     private int rear;
     private int size;
     private int capacity;
-    public ArrayQuque(int capacity) {
+    public ArrayQueue(int capacity) {
         this.capacity = capacity;
         data = new int[capacity];
         front = 0;
@@ -45,7 +45,7 @@ public class ArrayQuque {
 
 
     public static void main(String[] args) {
-        ArrayQuque queue = new ArrayQuque(5);
+        ArrayQueue queue = new ArrayQueue(5);
         queue.enqueue(1);
         queue.enqueue(2);
         queue.enqueue(3);
