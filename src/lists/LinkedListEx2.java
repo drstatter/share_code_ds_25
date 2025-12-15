@@ -58,12 +58,8 @@ public class LinkedListEx2<T> implements Iterable<Node<T>> {
         Iterator<Node<Integer>> iter=listy.iterator();
         while (iter.hasNext()) {
             System.out.println(iter.next().getData());
-
+        }
     }
-
 }
-
-}
-
 
 
