@@ -41,6 +41,7 @@ public class ArrayQueue {
             throw new RuntimeException("Queue is empty");
         }
         return data[front];
+
     }
 
 
