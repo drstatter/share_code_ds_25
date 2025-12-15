@@ -15,7 +15,6 @@ public class DoubleLinkedList<T> {
         if (size == 0) {
             head = newNode;
             tail = newNode;
-
         } else {
             tail.setNext(newNode);
             tail=newNode;
