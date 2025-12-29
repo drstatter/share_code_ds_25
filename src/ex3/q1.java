@@ -22,7 +22,7 @@ import java.util.Arrays;
  * Notes:
  *  - You may use the provided IntStack (stack of ints) below.
  */
-public class HistogramMaxRectangleSol {
+public class q1 {
 
     /**
      * ====== STUDENT TASK ======
