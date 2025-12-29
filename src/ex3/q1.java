@@ -55,27 +55,27 @@ public class q1 {
      * Operations: push, pop, peek, isEmpty, size, clear.
      */
     static class IntStack {
-        private int[] a;
+        private int[] dataArr;
         private int top = -1;
 
         public IntStack(int capacity) {
             if (capacity < 1) capacity = 1;
-            a = new int[capacity];
+            dataArr = new int[capacity];
         }
 
         public void push(int x) {
-            if (top + 1 == a.length) grow();
-            a[++top] = x;
+            if (top + 1 == dataArr.length) grow();
+            dataArr[++top] = x;
         }
 
         public int pop() {
             if (top < 0) throw new IllegalStateException("pop from empty stack");
-            return a[top--];
+            return dataArr[top--];
         }
 
         public int peek() {
             if (top < 0) throw new IllegalStateException("peek from empty stack");
-            return a[top];
+            return dataArr[top];
         }
 
         public boolean isEmpty() {
@@ -91,7 +91,7 @@ public class q1 {
         }
 
         private void grow() {
-            a = Arrays.copyOf(a, Math.max(2, a.length * 2));
+            dataArr = Arrays.copyOf(dataArr, Math.max(2, dataArr.length * 2));
         }
     }
 

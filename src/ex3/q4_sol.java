@@ -1,4 +1,5 @@
-﻿
+﻿package ex3;
+
 import java.util.*;
 
 /**
@@ -10,7 +11,7 @@ import java.util.*;
  *  - Recursively build the right subtree from the right half.
  * Time: O(n)   Space: O(h) recursion (h is height, ~log n for balanced tree).
  */
-public class BSTFromSortedArrayTemplate {
+public class q4_sol {
 
     /* ========================= Solution ========================= */
 
@@ -25,12 +26,12 @@ public class BSTFromSortedArrayTemplate {
     }
 
     // Helper: divide & conquer on [l..r]
-    private static TreeNode build(int[] a, int l, int r) {
-        if (l > r) return null;
-        int m = (l + r) >>> 1;      // midpoint
-        TreeNode root = new TreeNode(a[m]);
-        root.left  = build(a, l, m - 1);
-        root.right = build(a, m + 1, r);
+    private static TreeNode build(int[] array, int left, int r) {
+        if (left > r) return null;
+        int m = (left + r) >>> 1;      // midpoint
+        TreeNode root = new TreeNode(array[m]);
+        root.left  = build(array, left, m - 1);
+        root.right = build(array, m + 1, r);
         return root;
     }
 
@@ -105,17 +106,17 @@ public class BSTFromSortedArrayTemplate {
             StringBuilder sb = new StringBuilder();
             List<TreeNode> next = new ArrayList<>();
 
-            for (TreeNode n : level) {
-                if (n == null) {
+            for (TreeNode node : level) {
+                if (node == null) {
                     sb.append(" . ");
                     next.add(null);
                     next.add(null);
                 } else {
-                    String s = String.valueOf(n.val);
+                    String s = String.valueOf(node.val);
                     sb.append(" ").append(s).append(" ");
-                    next.add(n.left);
-                    next.add(n.right);
-                    if (n.left != null || n.right != null) hasNonNull = true;
+                    next.add(node.left);
+                    next.add(node.right);
+                    if (node.left != null || node.right != null) hasNonNull = true;
                 }
             }
 
