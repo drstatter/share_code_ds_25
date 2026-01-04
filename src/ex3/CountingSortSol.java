@@ -37,11 +37,6 @@ public class CountingSortSol {
      * ======= STUDENT TASK =======
      * Implement counting sort assuming all values are in [-n, n], where n = arr.length.
      *
-     * Guidelines (non-solution):
-     *  - Build a frequency array sized for the whole range (2n + 1).
-     *  - Map a value v in [-n, n] to an index in [0, 2n] via offset: index = v + n.
-     *  - Reconstruct arr in non-decreasing order using the frequencies.
-     *  - Keep overall time O(n) and avoid unnecessary loops.
      */
     public static void countingSortRangeNegToPos(int[] arr) {
         if (arr == null || arr.length <= 1) return;
