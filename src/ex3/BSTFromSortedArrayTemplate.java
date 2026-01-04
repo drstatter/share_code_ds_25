@@ -13,7 +13,6 @@ import java.util.*;
  *  Implement sortedArrayToBST(int[] nums) WITHOUT using any library structures.
  *
  * Notes:
- *  - A height-balanced tree aims for minimal height: choose middle as root, etc.
  *  - Time target: O(n); Space target: O(n) recursion (or O(1) extra if iterative).
  *
  * This template also provides a Pretty Print function to visualize the tree.
