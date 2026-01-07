@@ -27,37 +27,53 @@ public class q5_sol {
             throw new IllegalArgumentException("Invalid input: empty tree or non-positive k");
         }
 
-        TreeNode cur = root;
-        int count = 0;
+   int cnt = 0;  // This will count the nodes as we traverse
+    TreeNode curr = root;
+    int result = -1; 
 
-        while (cur != null) {
-            if (cur.right == null) {
-                // Visit current
-                count++;
-                if (count == k) return cur.val;
-                cur = cur.left;
+    while (curr != null) {
+        // If left child is null, process the current node
+        if (curr.left == null) {
+            cnt++;  // We have visited a node
+
+            // If this is the k-th smallest, return the current node's value
+            if (cnt == k) {
+                result= curr.val;
+            }
+
+            // Move to the right node
+            curr = curr.right;
+        } else {
+            // Find the inorder predecessor (rightmost node of left subtree)
+            TreeNode pre = curr.left;
+
+            // Find the rightmost node in the left subtree, or the predecessor's right child is curr
+            while (pre.right != null && pre.right != curr) {
+                pre = pre.right;
+            }
+
+            // If the right child of the predecessor is null, establish a temporary link to curr
+            if (pre.right == null) {
+                pre.right = curr;  // Create a temporary link to current node
+                curr = curr.left;  // Move to the left child
             } else {
-                // Find inorder predecessor (rightmost of left subtree)
-                TreeNode pred = cur.right;
-                while (pred.left != null && pred.left != cur) {
-                    pred = pred.left;
+                // If the right child of the predecessor points to curr, restore the tree
+                pre.right = null;  // Break the temporary link
+
+                cnt++;  // We have visited the current node
+
+                // If this is the k-th smallest, return the current node's value
+                if (cnt == k) {
+                    result = curr.val;
                 }
 
-                if (pred.left == null) {
-                    // Thread to current and go left
-                    pred.left = cur;
-                    cur = cur.right;
-                } else {
-                    // Remove thread, visit current, then go right
-                    pred.left = null;
-                    count++;
-                    if (count == k) return cur.val;
-                    cur = cur.left;
-                }
+                // Move to the right node
+                curr = curr.right;
             }
         }
+    }
+    return result;
 
-        throw new IllegalArgumentException("k is out of range (too large)");
     }
 
     /* ========================= Provided: Tree Node & Utilities ========================= */
