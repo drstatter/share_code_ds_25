@@ -23,7 +23,7 @@ public class q5_sol {
      * Throws IllegalArgumentException if k is out of range.
      */
     public static int kthSmallestO1(TreeNode root, int k) {
-        if (root == null || k <= 0) {
+      if (root == null || k <= 0) {
             throw new IllegalArgumentException("Invalid input: empty tree or non-positive k");
         }
 
@@ -31,28 +31,28 @@ public class q5_sol {
         int count = 0;
 
         while (cur != null) {
-            if (cur.left == null) {
+            if (cur.right == null) {
                 // Visit current
                 count++;
                 if (count == k) return cur.val;
-                cur = cur.right;
+                cur = cur.left;
             } else {
                 // Find inorder predecessor (rightmost of left subtree)
-                TreeNode pred = cur.left;
-                while (pred.right != null && pred.right != cur) {
-                    pred = pred.right;
+                TreeNode pred = cur.right;
+                while (pred.left != null && pred.left != cur) {
+                    pred = pred.left;
                 }
 
-                if (pred.right == null) {
+                if (pred.left == null) {
                     // Thread to current and go left
-                    pred.right = cur;
-                    cur = cur.left;
+                    pred.left = cur;
+                    cur = cur.right;
                 } else {
                     // Remove thread, visit current, then go right
-                    pred.right = null;
+                    pred.left = null;
                     count++;
                     if (count == k) return cur.val;
-                    cur = cur.right;
+                    cur = cur.left;
                 }
             }
         }
@@ -117,7 +117,7 @@ public class q5_sol {
         List<Integer> in = inorder(root);
         System.out.println("Inorder (sorted): " + in);
 
-        int[] ks = {1, 3, 5, 7, 10};
+        int[] ks = {1, 3, 5, 7, 9};
         for (int k : ks) {
             int ans = kthSmallestO1(root, k);
             System.out.printf("k=%d -> %d (expected %d)%n", k, ans, in.get(k - 1));
