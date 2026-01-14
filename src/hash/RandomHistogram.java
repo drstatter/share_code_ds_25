@@ -7,14 +7,14 @@ import java.util.Random;
 public class RandomHistogram {
 
     public static void main(String[] args) {
-        int N = 500; // Change N here
-        long seed = System.nanoTime(); // You can fix the seed for reproducibility (e.g. 12345)
-
-        int[] counts = sampleAndCount(N, seed);
+        int N = 50;
+        int size=1000;
+        long seed = System.nanoTime();
+        int[] counts = sampleAndCount(size,N, seed);
 
         // Optional: print results to console
         System.out.println("N = " + N + ", seed = " + seed);
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < size; i++) {
             System.out.printf("%2d -> %d%n", i + 1, counts[i]);
         }
 
@@ -33,13 +33,13 @@ public class RandomHistogram {
      * Generates N random numbers in the range 1..N
      * and counts how many times each value appears.
      */
-    private static int[] sampleAndCount(int N, long seed) {
+    private static int[] sampleAndCount(int size,int N, long seed) {
         if (N <= 0) throw new IllegalArgumentException("N must be positive");
-        int[] counts = new int[N];
+        int[] counts = new int[size];
         Random rnd = new Random(seed);
 
         for (int i = 0; i < N; i++) {
-            int value = rnd.nextInt(N) + 1; // Uniform random in [1..N]
+            int value = rnd.nextInt(size) + 1; // Uniform random in [1..N]
             counts[value - 1]++;
         }
         return counts;
