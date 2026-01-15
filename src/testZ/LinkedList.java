@@ -2,6 +2,7 @@ package testZ;
 
 import lists.Node;
 import java.util.Iterator;
+//testz
 
 public class LinkedList<T> implements Iterable<Node<T>> {
 

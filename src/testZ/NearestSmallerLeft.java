@@ -2,7 +2,7 @@ package testZ;
 
 import java.util.Arrays;
 
-
+//testz
 public class NearestSmallerLeft {
     public int[] nearestSmallerToLeft(int[] arr) {
         return null;
