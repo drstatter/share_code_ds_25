@@ -9,6 +9,7 @@ public class RandomHistogram {
     public static void main(String[] args) {
         int N = 50;
         int size=1000;
+        //key parameters
         long seed = System.nanoTime();
         int[] counts = sampleAndCount(size,N, seed);
 

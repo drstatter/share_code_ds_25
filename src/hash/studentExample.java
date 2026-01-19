@@ -34,7 +34,7 @@ public class studentExample {
         studentExample student2 = new studentExample("456 Elm St", 2, "John", "Snow");
         studentExample student3 = new studentExample("1114567 Elm St", 3, "John", "S");
         studentExample student4 = new studentExample("1114 Elm St", 4, "rob", "S");
-
+//k
         System.out.println("student1.equals(student2): " + student1.equals(student2));
         System.out.println("student1.hashCode(): " + student1.hashCode());
         System.out.println("student2.hashCode(): " + student2.hashCode());
