@@ -5,7 +5,7 @@ import java.util.Iterator;
 //testz
 
 public class LinkedList<T> implements Iterable<Node<T>> {
-
+    //koala
     private Node<T> head;
     private int size;
 
