@@ -18,6 +18,7 @@ public class studentExample {
     }
 
     @Override
+    // Equals only checks first name
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         studentExample that = (studentExample) o;
@@ -26,12 +27,12 @@ public class studentExample {
 
     @Override
     public int hashCode() {
-        return Objects.hash(fName, lName);
+        return Objects.hash(fName,lName);
     }
 
     public static void main(String[] args) {
         studentExample student1 = new studentExample("123 Main St", 1, "John", "Snow");
-        studentExample student2 = new studentExample("456 Elm St", 2, "John", "Snow");
+        studentExample student2 = new studentExample("456 Elm St", 1, "John", "Snow");
         studentExample student3 = new studentExample("1114567 Elm St", 3, "John", "S");
         studentExample student4 = new studentExample("1114 Elm St", 4, "rob", "S");
 //k
@@ -39,6 +40,7 @@ public class studentExample {
         System.out.println("student1.hashCode(): " + student1.hashCode());
         System.out.println("student2.hashCode(): " + student2.hashCode());
         System.out.println("student3.hashCode(): " + student3.hashCode());
+        System.out.println("student4.hashCode(): " + student4.hashCode());
         Set<studentExample> mySet=new HashSet<>();
         mySet.add(student1);
         mySet.add(student2);
