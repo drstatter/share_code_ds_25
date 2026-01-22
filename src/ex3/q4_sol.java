@@ -1,34 +1,37 @@
-﻿package ex3;
-
+﻿
 import java.util.*;
 
 /**
  * Question 4: Build a height-balanced BST from a sorted array.
  *
- * Goal:
- *  Given a sorted array in ascending order (no duplicates required),
- *  create a height-balanced Binary Search Tree (BST).
- *
- * Student Task:
- *  Implement sortedArrayToBST(int[] nums) WITHOUT using any library structures.
- *
- * Notes:
- *  - Time target: O(n); Space target: O(n) recursion (or O(1) extra if iterative).
- *
- * This template also provides a Pretty Print function to visualize the tree.
- * It prints the structure with branches and indentation (ASCII).
+ * Solution outline:
+ *  - Pick the middle element as the root to keep the tree height-balanced.
+ *  - Recursively build the left subtree from the left half.
+ *  - Recursively build the right subtree from the right half.
+ * Time: O(n)   Space: O(h) recursion (h is height, ~log n for balanced tree).
  */
 public class BSTFromSortedArrayTemplate {
 
-    /* ========================= Student Area ========================= */
+    /* ========================= Solution ========================= */
 
     /**
-     * ======= STUDENT TASK (TODO) =======
      * Build a height-balanced BST from a sorted (ascending) array.
-     * Return the root of the constructed tree.
+     * @param nums sorted array (ascending)
+     * @return root node of the constructed BST
      */
     public static TreeNode sortedArrayToBST(int[] nums) {
-        return null;
+        if (nums == null || nums.length == 0) return null;
+        return build(nums, 0, nums.length - 1);
+    }
+
+    // Helper: divide & conquer on [l..r]
+    private static TreeNode build(int[] a, int l, int r) {
+        if (l > r) return null;
+        int m = (l + r) >>> 1;      // midpoint
+        TreeNode root = new TreeNode(a[m]);
+        root.left  = build(a, l, m - 1);
+        root.right = build(a, m + 1, r);
+        return root;
     }
 
     /* ========================= Provided: Tree Node ========================= */
@@ -96,7 +99,6 @@ public class BSTFromSortedArrayTemplate {
         List<TreeNode> level = new ArrayList<>();
         level.add(root);
         boolean hasNonNull = true;
-        int maxWidth = 0;
 
         while (hasNonNull) {
             hasNonNull = false;
@@ -110,8 +112,7 @@ public class BSTFromSortedArrayTemplate {
                     next.add(null);
                 } else {
                     String s = String.valueOf(n.val);
-                    sb.append(String.format(" %s ", s));
-                    maxWidth = Math.max(maxWidth, s.length());
+                    sb.append(" ").append(s).append(" ");
                     next.add(n.left);
                     next.add(n.right);
                     if (n.left != null || n.right != null) hasNonNull = true;
@@ -124,26 +125,22 @@ public class BSTFromSortedArrayTemplate {
         return result;
     }
 
-    /* ========================= Demo (will show after student implements) ========================= */
+    /* ========================= Demo ========================= */
 
     public static void main(String[] args) {
-        // Example arrays to visualize
         int[] nums1 = {1, 2, 3, 4, 5, 6, 7};
         int[] nums2 = {-10, -3, 0, 5, 9};
         int[] nums3 = {2, 4, 6, 8};
 
-        // Print arrays
         System.out.println("Array #1: " + Arrays.toString(nums1));
         System.out.println("Array #2: " + Arrays.toString(nums2));
         System.out.println("Array #3: " + Arrays.toString(nums3));
         System.out.println();
 
-        // Build trees (after students implement sortedArrayToBST)
         TreeNode t1 = sortedArrayToBST(nums1);
         TreeNode t2 = sortedArrayToBST(nums2);
         TreeNode t3 = sortedArrayToBST(nums3);
 
-        // Pretty print structures
         System.out.println("Tree for Array #1:");
         printTree(t1);
         System.out.println("\nTree for Array #2:");
@@ -151,7 +148,6 @@ public class BSTFromSortedArrayTemplate {
         System.out.println("\nTree for Array #3:");
         printTree(t3);
 
-        // Optional inline compact view:
         System.out.println("\nInline view (Array #1):");
         printTreeInline(t1);
     }

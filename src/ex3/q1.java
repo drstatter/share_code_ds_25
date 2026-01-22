@@ -1,5 +1,4 @@
-﻿package ex3;
-
+﻿
 import java.util.Arrays;
 
 /**
@@ -40,26 +39,12 @@ public class HistogramMaxRectangleTemplate {
      *  - Consider boundary/sentinel logic so that all candidate rectangles get evaluated.
      */
     public static int largestRectangleArea(int[] heights) {
-        if (heights == null || heights.length == 0) return 0;
-
-        IntStack st = new IntStack(heights.length + 1); // holds indices with increasing heights
-        long maxArea = 0; // use long internally to avoid overflow during multiplication
-
-        for (int i = 0; i <= heights.length; i++) {
-            int curr = (i == heights.length) ? 0 : heights[i]; // sentinel height at the end
-            // While current height breaks the increasing sequence, finalize rectangles
-            while (!st.isEmpty() && curr < heights[st.peek()]) {
-                int h = heights[st.pop()];
-                int leftIndex = st.isEmpty() ? -1 : st.peek(); // previous smaller to the left
-                int width = i - leftIndex - 1;                 // span where h is the min
-                long area = (long) h * (long) width;
-                if (area > maxArea) maxArea = area;
-            }
-            st.push(i);
-        }
-
-        // maxArea fits in int for the given example constraints, but cast carefully
-        return (int) Math.min(maxArea, Integer.MAX_VALUE);
+        // ====== TODO: IMPLEMENT HERE ======
+        // You may use IntStack for indices:
+        // IntStack st = new IntStack(heights.length + 1);
+        // Remember to handle empty or all-zero arrays.
+        // Return the maximum area found.
+        return 0;
     }
 
     /* ---------------------- Provided Utilities (Students can use) ---------------------- */
