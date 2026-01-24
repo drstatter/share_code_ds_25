@@ -1,5 +1,4 @@
-﻿package ex3;
-
+﻿
 import java.util.*;
 
 /**
@@ -34,6 +33,10 @@ public class KthSmallestO1Template {
      * Output:
      *  - the k-th smallest node's value
      *
+     * Guidelines (non-solution hints):
+     *  - Traverse the tree in-order without a stack (think about temporary threading of nodes).
+     *  - Count nodes as you visit them in sorted order; when the counter == k, return the value.
+     *  - Ensure the tree is restored to its original shape before returning.
      */
     public static int kthSmallestO1(TreeNode root, int k) {
         throw new UnsupportedOperationException("Implement kthSmallestO1");
