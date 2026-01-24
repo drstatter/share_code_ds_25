@@ -1,7 +1,7 @@
 package lists;
 import java.util.Iterator;
 
-public class DoubleLinkedList<T> {
+public class DoubleLinkedList<T> implements Iterable<DoubleNode<T>> {
     private DoubleNode<T> head;
     private DoubleNode<T> tail;
     private int size;
@@ -10,6 +10,17 @@ public class DoubleLinkedList<T> {
         tail = null;
         size=0;
     }
+    public int getSize() {
+        return size;
+    }
+    public boolean isEmpty() {
+        return size==0;
+    }
+    public boolean delete(T data) {
+        DoubleNode<T> toDelete = findNode(data);
+        return remove(toDelete);
+    }
+
     public boolean addLast(T data) {
         DoubleNode<T> newNode = new DoubleNode<T>(null, tail, data);
         if (size == 0) {
@@ -58,14 +69,21 @@ public class DoubleLinkedList<T> {
         }
         if (killMe == head) {
             head = killMe.getNext();
-            head.setPrev(null);
             size--;
+            if (head != null) {
+                head.setPrev(null);
+            }
+
             return  true;
         }
         if (killMe == tail) {
             tail = killMe.getPrev();
-            tail.setNext(null);
-            size--;
+            if(tail!=null) {
+                tail.setNext(null);
+            }
+            if(size!=0) {
+                size--;
+            }
             return  true;
         }
         DoubleNode<T> prev=killMe.getPrev();
