@@ -47,7 +47,7 @@ public class DoubleLinkedList<T> implements Iterable<DoubleNode<T>> {
         return true;
     }
     public boolean addIn(DoubleNode<T> inNode, T data) {
-        DoubleNode<T> newNode = new DoubleNode<T>(inNode.getNext(),inNode, data);
+        DoubleNode<T> newNode = new DoubleNode<>(inNode.getNext(),inNode, data);
         inNode.setNext(newNode);
         newNode.setPrev(inNode);
         size++;
