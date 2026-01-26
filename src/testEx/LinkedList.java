@@ -1,6 +1,5 @@
 package testEx;
 
-
 public class LinkedList<T>  {
 
     private Node<T> head;
@@ -40,7 +39,15 @@ public class LinkedList<T>  {
     public void setHead(Node<T> head) {
         this.head = head;
     }
-    public int getSize(){ return size;}
+    public int getSize(){
+        Node<T> pos = head;
+        int count = 0;
+        while (pos != null) {
+            pos = pos.getNext();
+            count++;
+        }
+        return count;
+    }
 
     public void addFirst(T data) {
         Node<T> newNode = new Node<T>(null, data);
