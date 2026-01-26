@@ -3,34 +3,30 @@ package testEx;
 public class LinkedList<T>  {
 
     private Node<T> head;
-    private int size;
+
 
     public LinkedList() {
         head = null;
-        size = 0;
+
     }
 
     public void addLastNode(T data) {
-        if (size == 0) {
+        if (head == null) {
             addFirst(data);
         } else {
             Node<T> newNode = new Node<T>(null, data);
             Node<T> last = findLast1();
             last.setNext(newNode);
-            size++;
         }
     }
 
     public void addLastNode(Node<T> data) {
         data.setNext(null);
-        if (size == 0) {
+        if (head == null) {
             head = data;
-            size = 1;
-
         } else {
             Node<T> last = findLast1();
             last.setNext(data);
-            size++;
         }
     }
 
@@ -55,7 +51,6 @@ public class LinkedList<T>  {
         Node<T> newNode = new Node<T>(null, data);
         newNode.setNext(head);
         head = newNode;
-        size++;
     }
 
 
