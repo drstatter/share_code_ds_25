@@ -21,6 +21,9 @@ public class FindCommonNodeList<T> {
                 node2 = node2.getNext();
             }
         }
+        if(times==0) {
+            return null;
+        }
         return node1;
     }
     public static void main(String[] args) {
@@ -28,6 +31,11 @@ public class FindCommonNodeList<T> {
         LinkedList<Integer> l2 = new LinkedList<>();
         l1.addLastNode(1);
         l1.addLastNode(2);
+        LinkedList<Integer> l3 = new LinkedList<>();
+        LinkedList<Integer> l4 = new LinkedList<>();
+        l3.addLastNode(1);
+        l3.addLastNode(2);
+        l4.addLastNode(3);
         Node<Integer> common = new Node<>(null, 4);
 
         l1.addLastNode(common);
@@ -39,8 +47,16 @@ public class FindCommonNodeList<T> {
 
         FindCommonNodeList<Integer> finder = new FindCommonNodeList<>();
         Node commonNode = finder.findCommonNode(l1, l2);
+        Node commonNode1 = finder.findCommonNode(l3, l4);
+
         if (commonNode != null) {
             System.out.println("Common node data: " + commonNode.getData());
+        } else {
+            System.out.println("No common node found.");
+        }
+
+        if (commonNode1 != null) {
+            System.out.println("Common node data: " + commonNode1.getData());
         } else {
             System.out.println("No common node found.");
         }
