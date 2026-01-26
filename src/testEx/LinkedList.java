@@ -22,9 +22,11 @@ public class LinkedList<T>  {
     }
 
     public void addLastNode(Node<T> data) {
+        data.setNext(null);
         if (size == 0) {
             head = data;
             size = 1;
+
         } else {
             Node<T> last = findLast1();
             last.setNext(data);
