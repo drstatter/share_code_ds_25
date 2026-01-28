@@ -1,19 +1,23 @@
 package heap;
+
 import java.util.Arrays;
 
-public class IntMaxHeap {
+public class intMaxHeapEx {
+
     private int[] heap;
     private int size;
-    public IntMaxHeap(int[] data){
+    public intMaxHeapEx(int[] data){
         heap=data;
         size=data.length-1;
         buildHeap();
     }
-    public IntMaxHeap(int capacity) {
+    public intMaxHeapEx(int capacity) {
         if (capacity < 1) throw new IllegalArgumentException("capacity must be >= 1");
         this.heap = new int[capacity];
         this.size = 0;
     }
+
+    //
 
 
     public int size() {
@@ -50,18 +54,10 @@ public class IntMaxHeap {
 
     private void buildHeap() {
 
-        for (int i = parent(size - 1); i >= 0; i--) {
-            heapyDown(i);
-        }
     }
 
     private void heapyUp(int i) {
-        while (i > 0) {
-            int parented = parent(i);
-            if (heap[parented] >= heap[i]) break;
-            swap(parented, i);
-            i = parented;
-        }
+
     }
 
     private void heapyDown(int i) {
@@ -103,7 +99,7 @@ public class IntMaxHeap {
 
     public static void main(String[] args) {
         int[] arr = {3, 10, 5, 6, 2, 8, 1};
-        IntMaxHeap heap=new IntMaxHeap(arr) ;
+        intMaxHeapEx heap=new intMaxHeapEx(arr) ;
 
         System.out.println("heap = " + heap);
         System.out.println("max = " + heap.peek());
@@ -116,3 +112,5 @@ public class IntMaxHeap {
 
     }
 }
+
+
