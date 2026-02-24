@@ -14,6 +14,7 @@ public class DoubleLinkedList<T> implements Iterable<DoubleNode<T>> {
         return size;
     }
     public boolean isEmpty() {
+
         return size==0;
     }
     public boolean delete(T data) {
@@ -70,6 +71,9 @@ public class DoubleLinkedList<T> implements Iterable<DoubleNode<T>> {
         if (killMe == head) {
             head = killMe.getNext();
             size--;
+            if(size==0){
+                tail=null;
+            }
             if (head != null) {
                 head.setPrev(null);
             }
