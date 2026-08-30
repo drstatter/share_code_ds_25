@@ -68,6 +68,15 @@ public class LinkedListTest {
     }
 
     @Test
+    public void deleteMiddleElementOutsideIntegerCacheRange() {
+        list.addLastNode(1000);
+        list.addLastNode(2000);
+        list.addLastNode(3000);
+        assertTrue(list.delete(2000));
+        assertEquals("1000 3000 ", list.toString());
+    }
+
+    @Test
     public void acyclicListReportsNoCycle() {
         list.addLastNode(10);
         list.addLastNode(20);

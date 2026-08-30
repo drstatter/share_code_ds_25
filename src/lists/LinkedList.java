@@ -87,7 +87,7 @@ public class LinkedList<T> implements Iterable<Node<T>> {
         Node<T> before = null;
         while (iter.hasNext()) {
             Node<T> current = iter.next();
-            if (current.getNext().getData() == data) {
+            if (current.getNext().getData().equals(data)) {
                 return current;
             }
         }
