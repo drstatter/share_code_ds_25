@@ -70,11 +70,11 @@ public class LinkedListTailTest {
     }
 
     @Test
-    public void removeDataOnHeadDecrementsSizeButReturnsNull() {
+    public void removeDataOnHeadReturnsRemovedValue() {
         list.add(1);
         list.add(2);
         list.add(3);
-        assertNull(list.removeData(1));
+        assertEquals(1, (int) list.removeData(1));
         assertEquals(2, list.size());
         assertEquals(2, (int) list.get(0));
     }

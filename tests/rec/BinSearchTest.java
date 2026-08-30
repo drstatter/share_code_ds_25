@@ -29,8 +29,8 @@ public class BinSearchTest {
         assertEquals(searcher.NOT_FOUND, searcher.binSearchIter(data, 13));
     }
 
-    @Test(expected = NullPointerException.class)
-    public void nullArrayThrowsBeforeReachingNullCheck() {
-        searcher.binSearch(null, 5);
+    @Test
+    public void nullArrayReturnsNotFound() {
+        assertEquals(searcher.NOT_FOUND, searcher.binSearch(null, 5));
     }
 }

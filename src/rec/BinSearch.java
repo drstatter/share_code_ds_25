@@ -3,12 +3,12 @@ package rec;
 public class BinSearch {
     public final int NOT_FOUND =-1;
     public int binSearch(int[] data,int valToSearch){
-        return binSearchRec(data,valToSearch,0,data.length-1);
-    }
-    private int binSearchRec(int[] data,int valToSearch,int start,int end){
         if(data==null){
             return NOT_FOUND;
         }
+        return binSearchRec(data,valToSearch,0,data.length-1);
+    }
+    private int binSearchRec(int[] data,int valToSearch,int start,int end){
         if(start>end){
             return NOT_FOUND;
         }else {

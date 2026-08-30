@@ -78,6 +78,7 @@ public class LinkedListTail<T> {
             if (head == null) { // List became empty
                 tail = null;
             }
+            return back;
         }
         while (current.getNext() != null) {
             back = current.getNext().getData();
