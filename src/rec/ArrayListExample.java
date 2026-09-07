@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ArrayListExample {
     public static void main(String[] args) {
-        List myList = new ArrayList<String>();// שימו לוב להצהרה על INTERFACE  ולשימוש ב<>
+        List myList = new ArrayList<String>();// שימו לוב להצהרה על INTERFACE  ולשימוש בGenerics
         myList.add("Koala");
         myList.add("are");
         myList.add("the");
