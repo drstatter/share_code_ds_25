@@ -1,4 +1,4 @@
-package rec;
+package ClassEx;
 
 public interface FileSystemComponent {
     // Returns the name of the file or folder

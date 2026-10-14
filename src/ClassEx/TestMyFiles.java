@@ -1,4 +1,4 @@
-package rec;
+package ClassEx;
 
 public class TestMyFiles {
 
